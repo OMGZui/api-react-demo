@@ -13,21 +13,17 @@ class ProjectController extends Controller
     function __construct(Project $project)
     {
         $this->project = $project;
-        header("Access-Control-Allow-Origin: * ");
-        header("Access-Control-Allow-Methods: GET, PUT, POST, DELETE, HEAD, OPTIONS");
-        header("Access-Control-Allow-Headers: X-Requested-With, Origin, X-Csrftoken, Content-Type, Accept,Acc-Token");
-
     }
 
     public function index()
     {
         $list = $this->project->getList();
         return response()->json(['code' => 200, 'result' => $list, 'msg' => '获取成功'])
-//            ->withHeaders([
-//                'Access-Control-Allow-Origin' => '*',
-//                'Access-Control-Allow-Methods' => 'GET, PUT, POST, DELETE, HEAD, OPTIONS',
-//                'Access-Control-Allow-Headers' => 'X-Requested-With, Origin, X-Csrftoken, Content-Type, Accept,Acc-Token'
-//            ])
+            ->withHeaders([
+                'Access-Control-Allow-Origin' => '*',
+                'Access-Control-Allow-Methods' => 'GET, PUT, POST, DELETE, HEAD, OPTIONS',
+                'Access-Control-Allow-Headers' => 'X-Requested-With, Origin, X-Csrftoken, Content-Type, Accept,Acc-Token'
+            ])
             ;
     }
 }
