@@ -13,6 +13,14 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+Route::get('hello',function (){
+   return 'hello';
+});
+
+Route::group(['middleware' => 'token'], function () {
+    Route::resource('project', 'project\ProjectController');
 });
