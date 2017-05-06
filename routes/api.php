@@ -17,10 +17,14 @@ use Illuminate\Http\Request;
 //    return $request->user();
 //});
 
-Route::get('hello',function (){
-   return 'hello';
+Route::get('hello', function () {
+    return 'hello';
 });
 
-Route::group(['middleware' => 'token'], function () {
+//Route::group(['middleware' => 'token'], function () {
+//    Route::resource('project', 'project\ProjectController');
+//});
+
+Route::group([], function () {
     Route::resource('project', 'project\ProjectController');
 });
